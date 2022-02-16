@@ -1,0 +1,24 @@
+{
+  "name": "package-json-version-tool",
+  "version": "1.0.1",
+  "description": "simple package.json version tool",
+  "main": "package-json-version-tool.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "package.json",
+    "version",
+    "semver"
+  ],
+  "author": "fwg",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adf0001/package-json-version-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adf0001/package-json-version-tool/issues"
+  },
+  "homepage": "https://github.com/adf0001/package-json-version-tool#readme"
+}
