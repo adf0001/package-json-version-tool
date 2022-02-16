@@ -102,7 +102,7 @@ module.exports = {
 
 	".sameRange()": function (done) {
 		var chk = function (r1, r2, r3) {
-			//.sameRange(range1, range2)		////check if 2 ranges are same
+			//.sameRange(range1, range2)		//check if 2 ranges are same
 			if (vt.sameRange(r1, r2)) {
 				if (typeof r3 === "undefined") return true;
 
