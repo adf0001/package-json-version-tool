@@ -117,6 +117,7 @@ parts      ::= \w+ ( '.' \w+ ) *
 var _regPartial = /^(x|X|\*|0|[1-9]\d*)(?:\.(x|X|\*|0|[1-9]\d*))?(?:\.(x|X|\*|0|[1-9]\d*))?(.*)/;
 
 var _regSimplePrefix = /^(\>\=|\<\=|\<|\>|\=|\~|\^)/;
+var _regSimplePrefixSpaces = /(\>\=|\<\=|\<|\>|\=|\~|\^)\s+/;
 
 var _isX = function (ch) {
 	return ch && (ch === "x" || ch === "X" || ch === "*");
@@ -272,7 +273,9 @@ var _parseSingleRange = function (singleRange) {
 	}
 
 	//simples
-	sa = singleRange.replace(/(^\s+|\s+$)/g, "").split(/\s+/);
+	sa = singleRange.replace(/(^\s+|\s+$)/g, "")
+		.replace(_regSimplePrefixSpaces,"$1")
+		.split(/\s+/);
 
 	vaMin = [0, 0, 0, , true];
 	vaMax = [Number.MAX_VALUE, Number.MAX_VALUE, Number.MAX_VALUE, , ,];

@@ -35,7 +35,10 @@ module.exports = {
 			//.parseRange(rangeString)		//return an array of rangePair, that is [ rangePair1, rangePair2, ... ]
 			cmp(vt.parseRange("1.2.3 - 2.3.4"), [[[1, 2, 3, , true], [2, 3, 5, , ,]]]) &&
 			cmp(vt.parseRange("<1.2.3"), [[[0, 0, 0, , true], [1, 2, 3, , ,]]]) &&
+			
 			cmp(vt.parseRange("<=1.2.3"), [[[0, 0, 0, , true], [1, 2, 4, , ,]]]) &&
+			cmp(vt.parseRange("<= 1.2.3"), [[[0, 0, 0, , true], [1, 2, 4, , ,]]]) &&
+			
 			cmp(vt.parseRange(">1.2.3"), [[[1, 2, 4, , true], [Number.MAX_VALUE, Number.MAX_VALUE, Number.MAX_VALUE, , ,]]]) &&
 			cmp(vt.parseRange(">=1.2.3"), [[[1, 2, 3, , true], [Number.MAX_VALUE, Number.MAX_VALUE, Number.MAX_VALUE, , ,]]]) &&
 			cmp(vt.parseRange("=1.2.3"), [[[1, 2, 3, , true], [1, 2, 4, , ,]]]) &&
@@ -96,6 +99,9 @@ module.exports = {
 			vt.satisfy("2.0.0", " 1.2.7 || >=1.2.9 <2.0.0 ") === false &&
 			vt.satisfy("2.0.0", " gsdfgsdfg ") === null &&
 			vt.satisfy("gregsr", " 1.2.7 || >=1.2.9 <2.0.0 ") === null &&
+			
+			vt.satisfy("1.0.1", ">= 1.0.0") === true &&
+			
 			true
 		));
 	},
